@@ -2,15 +2,22 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Frontend 1.0</title>
+    <title>Frontend 2.0</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Frontend 1.0</h1>
+    <h1>Frontend 2.0</h1>
     <div class="container">
+        <!-- Первая часть (как в версии 1.0) -->
         <input type="text" id="textInput" placeholder="Введите текст">
         <button id="sendBtn">Отправить</button>
         <p id="status"></p>
+
+        <hr>
+
+        <!-- Новая часть (чтение данных) -->
+        <button id="loadBtn">Загрузить данные</button>
+        <textarea id="dataOutput" readonly placeholder="Здесь появятся данные из data.txt"></textarea>
     </div>
     <script src="script.js"></script>
 </body>

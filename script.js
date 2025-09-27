@@ -1,3 +1,4 @@
+// Отправка текста на backend
 document.getElementById("sendBtn").addEventListener("click", async () => {
     const input = document.getElementById("textInput").value;
     const status = document.getElementById("status");
@@ -28,5 +29,22 @@ document.getElementById("sendBtn").addEventListener("click", async () => {
     } catch (error) {
         status.textContent = "Ошибка подключения к серверу";
         status.style.color = "red";
+    }
+});
+
+// Загрузка содержимого data.txt
+document.getElementById("loadBtn").addEventListener("click", async () => {
+    const output = document.getElementById("dataOutput");
+    try {
+        const response = await fetch("http://localhost:8080/data");
+        if (response.ok) {
+            const text = await response.text();
+            output.value = text;
+        } else {
+            const errText = await response.text();
+            output.value = "Ошибка: " + errText;
+        }
+    } catch (error) {
+        output.value = "Ошибка подключения к серверу";
     }
 });
